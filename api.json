@@ -1,7 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Auth API",
+    "title": "F3 Services API Reference",
+    "description": "This document provides a comprehensive reference guide for the F3 Services API. The F3 Services API is a set of RESTful endpoints that allow developers to programmatically interact with F3 Services. This document includes detailed descriptions of each available endpoint, as well as the parameters, methods, and data structures used by the API. Copyright: © Keture 2023. All rights reserved. This API reference is provided solely for the purpose of development and testing. Any commercial use or redistribution of this API, or any part thereof, is strictly prohibited without the prior written consent of Keture.",
     "version": "1.0.0"
   },
   "components": {
@@ -17,20 +18,13 @@
   "paths": {
     "/api/auth/v1/{lang}/register": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "name",
-                  "mobile_number",
-                  "password",
-                  "role"
-                ],
+                "required": ["name", "mobile_number", "password", "role"],
                 "properties": {
                   "name": {
                     "type": "string"
@@ -76,18 +70,13 @@
     },
     "/api/auth/v1/{lang}/login": {
       "post": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "mobile_number",
-                  "password"
-                ],
+                "required": ["mobile_number", "password"],
                 "properties": {
                   "mobile_number": {
                     "type": "string"
@@ -125,9 +114,7 @@
     },
     "/api/auth/v1/{lang}/profile": {
       "get": {
-        "tags": [
-          "Auth"
-        ],
+        "tags": ["Auth"],
         "parameters": [
           {
             "in": "path",
@@ -153,17 +140,13 @@
     },
     "/api/auth/v1/{lang}/user/activate": {
       "post": {
-        "tags": [
-          "Admin"
-        ],
+        "tags": ["Admin"],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "mobile_number"
-                ],
+                "required": ["mobile_number"],
                 "properties": {
                   "mobile_number": {
                     "type": "string"
@@ -202,17 +185,13 @@
     },
     "/api/auth/v1/{lang}/user/lock": {
       "post": {
-        "tags": [
-          "Admin"
-        ],
+        "tags": ["Admin"],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "mobile_number"
-                ],
+                "required": ["mobile_number"],
                 "properties": {
                   "mobile_number": {
                     "type": "string"
@@ -240,6 +219,655 @@
         "security": [
           {
             "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/fish/all": {
+      "get": {
+        "tags": ["Admin"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/fish/new": {
+      "post": {
+        "tags": ["Admin"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["names", "grade", "min_size", "image_url"],
+                "properties": {
+                  "names": {
+                    "type": "string"
+                  },
+                  "grade": {
+                    "type": "string"
+                  },
+                  "min_size": {
+                    "type": "integer"
+                  },
+                  "image_url": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "names": "{\"en\":\"Blue Swimming Crab\",\"ta\":\"நீல நீச்சல் நண்டு\",\"si\":\"නිල් පිහිනුම් කකුළුවා\"}",
+                  "grade": "XL",
+                  "min_size": 700,
+                  "image_url": "image path"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/fish/update": {
+      "post": {
+        "tags": ["Admin"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["id"],
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "names": {
+                    "type": "string"
+                  },
+                  "grade": {
+                    "type": "string"
+                  },
+                  "min_size": {
+                    "type": "integer"
+                  },
+                  "image_url": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "id": 1,
+                  "names": "{\"en\":\"Blue Swimming Crab\",\"ta\":\"நீல நீச்சல் நண்டு\",\"si\":\"නිල් පිහිනුම් කකුළුවා\"}",
+                  "grade": "XL",
+                  "min_size": 700,
+                  "image_url": "image path"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/fish/delete": {
+      "post": {
+        "tags": ["Admin"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["id"],
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  }
+                },
+                "example": {
+                  "id": 1
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/request/": {
+      "get": {
+        "tags": ["Fisher"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Fisher"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "scheduled_end_at",
+                  "item_id",
+                  "item_weight",
+                  "starting_bid_price"
+                ],
+                "properties": {
+                  "scheduled_end_at": {
+                    "type": "string"
+                  },
+                  "item_id": {
+                    "type": "integer"
+                  },
+                  "item_weight": {
+                    "type": "number"
+                  },
+                  "starting_bid_price": {
+                    "type": "number"
+                  },
+                  "images": {
+                    "type": "array"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "scheduled_end_at": "2023-02-25T04:41:47.405Z",
+                  "item_id": 1,
+                  "item_weight": 25.5,
+                  "starting_bid_price": 8000,
+                  "description": "Test Description",
+                  "images": []
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/request/count": {
+      "get": {
+        "tags": ["Fisher"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/request/{id}": {
+      "get": {
+        "tags": ["Fisher"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/request/cancel": {
+      "post": {
+        "tags": ["Fisher"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["auction_id"],
+                "properties": {
+                  "auction_id": {
+                    "type": "integer"
+                  }
+                },
+                "example": {
+                  "auction_id": 1
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/market/": {
+      "get": {
+        "tags": ["Market"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/market/{id}": {
+      "get": {
+        "tags": ["Market"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/submission/all": {
+      "get": {
+        "tags": ["Buyer"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/submission/": {
+      "get": {
+        "tags": ["Buyer"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Buyer"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["auction_id", "bid_price"],
+                "properties": {
+                  "auction_id": {
+                    "type": "integer"
+                  },
+                  "bid_price": {
+                    "type": "number"
+                  }
+                },
+                "example": {
+                  "auction_id": 1,
+                  "bid_price": 8000
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/submission/{id}": {
+      "get": {
+        "tags": ["Buyer"],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/scheduler/v1/{lang}/start": {
+      "post": {
+        "tags": [
+          "Scheduler"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "auction_id"
+                ],
+                "properties": {
+                  "auction_id": {
+                    "type": "integer"
+                  }
+                },
+                "example": {
+                  "auction_id": 1
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": [
+              
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response"
+          }
+        }
+      }
+    },
+    "/api/scheduler/v1/{lang}/startAll": {
+      "post": {
+        "tags": [
+          "Scheduler"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
           }
         ],
         "responses": {
