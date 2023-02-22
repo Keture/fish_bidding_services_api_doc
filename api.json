@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "F3 Services API Reference",
-    "summary" : "This document provides a comprehensive reference guide for the F3 Services API. The F3 Services API is a set of RESTful endpoints that allow developers to programmatically interact with F3 Services. This document includes detailed descriptions of each available endpoint, as well as the parameters, methods, and data structures used by the API.",
+    "summary": "This document provides a comprehensive reference guide for the F3 Services API. The F3 Services API is a set of RESTful endpoints that allow developers to programmatically interact with F3 Services. This document includes detailed descriptions of each available endpoint, as well as the parameters, methods, and data structures used by the API.",
     "description": "Copyright: © Keture 2023. All rights reserved. This API reference is provided solely for the purpose of development and testing. Any commercial use or redistribution of this API, or any part thereof, is strictly prohibited without the prior written consent of Keture.",
     "version": "1.0.0"
   },
@@ -41,9 +41,9 @@
                   }
                 },
                 "example": {
-                  "name": "Temp name",
-                  "mobile_number": "0771212123",
-                  "password": "demo1234",
+                  "name": "Josiah",
+                  "mobile_number": "766641295",
+                  "password": "123456",
                   "role": "FISHER"
                 }
               }
@@ -64,7 +64,48 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "message": "Your account has been created successfully."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "error": "Internal Server Error",
+                    "message": "The specified mobile number already exists."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -87,8 +128,8 @@
                   }
                 },
                 "example": {
-                  "mobile_number": "0771212123",
-                  "password": "demo1234"
+                  "mobile_number": "766641295",
+                  "password": "123456"
                 }
               }
             }
@@ -108,7 +149,72 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "mobile_number": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    },
+                    "capability_list": {
+                      "type": "array"
+                    },
+                    "token": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "id": 5,
+                    "name": "Josiah",
+                    "mobile_number": "766641295",
+                    "role": "FISHER",
+                    "capability_list": [
+                      "AUCTIONS/CREATE",
+                      "AUCTIONS/READ",
+                      "USERS/READ"
+                    ],
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IkZJU0hFUiIsImNhcGFiaWxpdHlfbGlzdCI6IltcIkFVQ1RJT05TL0NSRUFURVwiLFwiQVVDVElPTlMvUkVBRFwiLFwiVVNFUlMvUkVBRFwiXSIsImlhdCI6MTY3NzA5MDAyOCwiZXhwIjoxNjc5NjgyMDI4fQ.eVaKBdWFXYNEfyoJtZd56Fubuj0In2w-1GHcjYA1BoE"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "error": "Internal Server Error",
+                    "message": "Your account has not been activated yet."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -134,7 +240,90 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "mobile_number": {
+                      "type": "string"
+                    },
+                    "role": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "id": 5,
+                    "name": "Josiah",
+                    "mobile_number": "766641295",
+                    "role": "FISHER"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "code": "FAST_JWT_MALFORMED",
+                    "error": "Internal Server Error",
+                    "message": "The token is malformed."
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -247,7 +436,62 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    {
+                      "id": 1,
+                      "grade": "XL",
+                      "name": "Blue Swimming Crab"
+                    },
+                    {
+                      "id": 2,
+                      "grade": "L",
+                      "name": "Blue Swimming Crab"
+                    },
+                    {
+                      "id": 3,
+                      "grade": "S",
+                      "name": "Blue Swimming Crab"
+                    },
+                    {
+                      "id": 4,
+                      "grade": "VS",
+                      "name": "Blue Swimming Crab"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -439,7 +683,87 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    {
+                      "id": 1,
+                      "scheduled_end_at": "2023-02-25T18:47:49.000Z",
+                      "item_weight": 25.5,
+                      "starting_bid_price": 8000,
+                      "status": "ACTIVE",
+                      "items": {
+                        "grade": "XL",
+                        "image_url": "https://ik.imagekit.io/f3fishapp/BlueSwimmingCrab_KQYhehJd2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661015509786",
+                        "name": "Blue Swimming Crab"
+                      },
+                      "_count": {
+                        "bids": 0
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "code": "FAST_JWT_MALFORMED",
+                    "error": "Internal Server Error",
+                    "message": "The token is malformed."
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -506,7 +830,78 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "message": "The auction has been uploaded successfully."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "code": "P2003",
+                    "error": "Internal Server Error",
+                    "message": "\nInvalid `fastify.prisma.auctions.create()` invocation in\n/app/routes/api/bidding/v1/_lang/request/index.js:218:52\n\n  215 ) {\n  216   throw new Error(fastify.locale.t(request, \"date_checking\"));\n  217 }\n→ 218 const item = await fastify.prisma.auctions.create(\n  Foreign key constraint failed on the field: `item_id`"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -532,7 +927,82 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "count": {
+                      "type": "integer"
+                    }
+                  },
+                  "example": {
+                    "name": "Josiah",
+                    "count": 1
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "code": "FAST_JWT_MALFORMED",
+                    "error": "Internal Server Error",
+                    "message": "The token is malformed."
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -566,7 +1036,108 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "scheduled_end_at": {
+                      "type": "string"
+                    },
+                    "item_weight": {
+                      "type": "number"
+                    },
+                    "starting_bid_price": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "auction_images": {
+                      "type": "array"
+                    },
+                    "items": {
+                      "type": "object"
+                    },
+                    "_count": {
+                      "type": "object"
+                    }
+                  },
+                  "example": {
+                    "id": 1,
+                    "scheduled_end_at": "2023-02-25T18:47:49.000Z",
+                    "item_weight": 25.5,
+                    "starting_bid_price": 8000,
+                    "status": "ACTIVE",
+                    "auction_images": [],
+                    "items": {
+                      "image_url": "https://ik.imagekit.io/f3fishapp/BlueSwimmingCrab_KQYhehJd2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661015509786",
+                      "grade": "XL",
+                      "name": "Blue Swimming Crab"
+                    },
+                    "_count": {
+                      "bids": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "error": "Internal Server Error",
+                    "message": "Cannot read properties of null (reading 'items')"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -611,7 +1182,78 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "message": "The auction has been successfully cancelled."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "code": "P2025",
+                    "error": "Internal Server Error",
+                    "message": "\nInvalid `fastify.prisma.auctions.update()` invocation in\n/app/routes/api/bidding/v1/_lang/request/index.js:362:52\n\n  359 // check access start\n  360 await fastify.access.isAuth(request, \"AUCTIONS/CREATE\");\n  361 //  check access end\n→ 362 const item = await fastify.prisma.auctions.update(\n  An operation failed because it depends on one or more records that were required but not found. Record to update not found."
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -637,7 +1279,62 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    {
+                      "id": 1,
+                      "scheduled_end_at": "2023-02-25T18:47:49.000Z",
+                      "item_weight": 25.5,
+                      "starting_bid_price": 8000,
+                      "status": "ACTIVE",
+                      "auction_images": [],
+                      "bids": [],
+                      "users": {
+                        "name": "Josiah"
+                      },
+                      "items": {
+                        "grade": "XL",
+                        "image_url": "https://ik.imagekit.io/f3fishapp/BlueSwimmingCrab_KQYhehJd2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661015509786",
+                        "name": "Blue Swimming Crab"
+                      },
+                      "_count": {
+                        "bids": 0
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -671,7 +1368,110 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "scheduled_end_at": {
+                      "type": "string"
+                    },
+                    "item_weight": {
+                      "type": "number"
+                    },
+                    "starting_bid_price": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "users": {
+                      "type": "object"
+                    },
+                    "items": {
+                      "type": "object"
+                    },
+                    "_count": {
+                      "type": "object"
+                    }
+                  },
+                  "example": {
+                    "id": 1,
+                    "scheduled_end_at": "2023-02-25T18:47:49.000Z",
+                    "item_weight": 25.5,
+                    "starting_bid_price": 8000,
+                    "status": "CANCELED",
+                    "users": {
+                      "name": "Josiah"
+                    },
+                    "items": {
+                      "grade": "XL",
+                      "image_url": "https://ik.imagekit.io/f3fishapp/BlueSwimmingCrab_KQYhehJd2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661015509786",
+                      "name": "Blue Swimming Crab"
+                    },
+                    "_count": {
+                      "bids": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "error": "Internal Server Error",
+                    "message": "Cannot read properties of null (reading 'items')"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
