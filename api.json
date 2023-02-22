@@ -2,7 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "F3 Services API Reference",
-    "description": "This document provides a comprehensive reference guide for the F3 Services API. The F3 Services API is a set of RESTful endpoints that allow developers to programmatically interact with F3 Services. This document includes detailed descriptions of each available endpoint, as well as the parameters, methods, and data structures used by the API. Copyright: © Keture 2023. All rights reserved. This API reference is provided solely for the purpose of development and testing. Any commercial use or redistribution of this API, or any part thereof, is strictly prohibited without the prior written consent of Keture.",
+    "summary" : "This document provides a comprehensive reference guide for the F3 Services API. The F3 Services API is a set of RESTful endpoints that allow developers to programmatically interact with F3 Services. This document includes detailed descriptions of each available endpoint, as well as the parameters, methods, and data structures used by the API.",
+    "description": "Copyright: © Keture 2023. All rights reserved. This API reference is provided solely for the purpose of development and testing. Any commercial use or redistribution of this API, or any part thereof, is strictly prohibited without the prior written consent of Keture.",
     "version": "1.0.0"
   },
   "components": {
@@ -18,7 +19,7 @@
   "paths": {
     "/api/auth/v1/{lang}/register": {
       "post": {
-        "tags": ["Auth"],
+        "tags": ["Auth service"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -70,7 +71,7 @@
     },
     "/api/auth/v1/{lang}/login": {
       "post": {
-        "tags": ["Auth"],
+        "tags": ["Auth service"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -114,7 +115,7 @@
     },
     "/api/auth/v1/{lang}/profile": {
       "get": {
-        "tags": ["Auth"],
+        "tags": ["Auth service"],
         "parameters": [
           {
             "in": "path",
@@ -140,7 +141,8 @@
     },
     "/api/auth/v1/{lang}/user/activate": {
       "post": {
-        "tags": ["Admin"],
+        "tags": ["Auth service"],
+        "deprecated": true,
         "requestBody": {
           "content": {
             "application/json": {
@@ -185,7 +187,8 @@
     },
     "/api/auth/v1/{lang}/user/lock": {
       "post": {
-        "tags": ["Admin"],
+        "tags": ["Auth service"],
+        "deprecated": true,
         "requestBody": {
           "content": {
             "application/json": {
@@ -230,7 +233,7 @@
     },
     "/api/bidding/v1/{lang}/fish/all": {
       "get": {
-        "tags": ["Admin"],
+        "tags": ["Bidding service"],
         "parameters": [
           {
             "in": "path",
@@ -251,7 +254,8 @@
     },
     "/api/bidding/v1/{lang}/fish/new": {
       "post": {
-        "tags": ["Admin"],
+        "tags": ["Bidding service"],
+        "deprecated": true,
         "requestBody": {
           "content": {
             "application/json": {
@@ -308,7 +312,8 @@
     },
     "/api/bidding/v1/{lang}/fish/update": {
       "post": {
-        "tags": ["Admin"],
+        "tags": ["Bidding service"],
+        "deprecated": true,
         "requestBody": {
           "content": {
             "application/json": {
@@ -369,7 +374,8 @@
     },
     "/api/bidding/v1/{lang}/fish/delete": {
       "post": {
-        "tags": ["Admin"],
+        "tags": ["Bidding service"],
+        "deprecated": true,
         "requestBody": {
           "content": {
             "application/json": {
@@ -414,7 +420,7 @@
     },
     "/api/bidding/v1/{lang}/request/": {
       "get": {
-        "tags": ["Fisher"],
+        "tags": ["Bidding service"],
         "parameters": [
           {
             "in": "path",
@@ -438,7 +444,7 @@
         }
       },
       "post": {
-        "tags": ["Fisher"],
+        "tags": ["Bidding service"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -507,7 +513,7 @@
     },
     "/api/bidding/v1/{lang}/request/count": {
       "get": {
-        "tags": ["Fisher"],
+        "tags": ["Bidding service"],
         "parameters": [
           {
             "in": "path",
@@ -533,7 +539,7 @@
     },
     "/api/bidding/v1/{lang}/request/{id}": {
       "get": {
-        "tags": ["Fisher"],
+        "tags": ["Bidding service"],
         "parameters": [
           {
             "in": "path",
@@ -567,7 +573,7 @@
     },
     "/api/bidding/v1/{lang}/request/cancel": {
       "post": {
-        "tags": ["Fisher"],
+        "tags": ["Bidding service"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -612,7 +618,7 @@
     },
     "/api/bidding/v1/{lang}/market/": {
       "get": {
-        "tags": ["Market"],
+        "tags": ["Bidding service"],
         "parameters": [
           {
             "in": "path",
@@ -638,7 +644,7 @@
     },
     "/api/bidding/v1/{lang}/market/{id}": {
       "get": {
-        "tags": ["Market"],
+        "tags": ["Bidding service"],
         "parameters": [
           {
             "in": "path",
@@ -672,7 +678,7 @@
     },
     "/api/bidding/v1/{lang}/submission/all": {
       "get": {
-        "tags": ["Buyer"],
+        "tags": ["Bidding service"],
         "parameters": [
           {
             "in": "path",
@@ -698,7 +704,7 @@
     },
     "/api/bidding/v1/{lang}/submission/": {
       "get": {
-        "tags": ["Buyer"],
+        "tags": ["Bidding service"],
         "parameters": [
           {
             "in": "path",
@@ -722,7 +728,7 @@
         }
       },
       "post": {
-        "tags": ["Buyer"],
+        "tags": ["Bidding service"],
         "requestBody": {
           "content": {
             "application/json": {
@@ -771,7 +777,7 @@
     },
     "/api/bidding/v1/{lang}/submission/{id}": {
       "get": {
-        "tags": ["Buyer"],
+        "tags": ["Bidding service"],
         "parameters": [
           {
             "in": "path",
@@ -805,17 +811,13 @@
     },
     "/api/scheduler/v1/{lang}/start": {
       "post": {
-        "tags": [
-          "Scheduler"
-        ],
+        "tags": ["Scheduler service"],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "auction_id"
-                ],
+                "required": ["auction_id"],
                 "properties": {
                   "auction_id": {
                     "type": "integer"
@@ -842,9 +844,7 @@
         ],
         "security": [
           {
-            "bearerAuth": [
-              
-            ]
+            "bearerAuth": []
           }
         ],
         "responses": {
@@ -856,9 +856,7 @@
     },
     "/api/scheduler/v1/{lang}/startAll": {
       "post": {
-        "tags": [
-          "Scheduler"
-        ],
+        "tags": ["Scheduler service"],
         "parameters": [
           {
             "in": "path",
@@ -880,12 +878,16 @@
   },
   "tags": [
     {
-      "name": "Auth",
-      "description": "For auth service"
+      "name": "Auth service",
+      "description": "The authentication microservice is responsible for managing user accounts, providing a secure login mechanism, and enforcing access control to the system."
     },
     {
-      "name": "Admin",
-      "description": "For admin use"
+      "name": "Bidding service",
+      "description": "The bidding microservice is responsible for managing the entire bidding process for auctions, including starting new auctions, managing bids from users, and enforcing auction rules and regulations."
+    },
+    {
+      "name": "Scheduler service",
+      "description": "The scheduler microservice is responsible for managing the end of auctions, updating the database with the final results, and notifying users who have placed bids on the auction."
     }
   ]
 }
