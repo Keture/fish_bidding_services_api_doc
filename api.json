@@ -1497,7 +1497,72 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    {
+                      "id": 1,
+                      "bid_price": 10000,
+                      "auctions": {
+                        "id": 1,
+                        "scheduled_end_at": "2023-02-25T18:47:49.000Z",
+                        "item_weight": 25.5,
+                        "starting_bid_price": 8000,
+                        "status": "ACTIVE",
+                        "auction_images": [],
+                        "bids": [
+                          {
+                            "bid_price": 10000,
+                            "user_id": 6
+                          }
+                        ],
+                        "users": {
+                          "name": "Josiah",
+                          "mobile_number": "766641295"
+                        },
+                        "items": {
+                          "grade": "XL",
+                          "image_url": "https://ik.imagekit.io/f3fishapp/BlueSwimmingCrab_KQYhehJd2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661015509786",
+                          "name": "Blue Swimming Crab"
+                        },
+                        "_count": {
+                          "bids": 1
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -1523,7 +1588,72 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    {
+                      "id": 1,
+                      "bid_price": 10000,
+                      "auctions": {
+                        "id": 1,
+                        "scheduled_end_at": "2023-02-25T18:47:49.000Z",
+                        "item_weight": 25.5,
+                        "starting_bid_price": 8000,
+                        "status": "ACTIVE",
+                        "auction_images": [],
+                        "bids": [
+                          {
+                            "bid_price": 10000,
+                            "user_id": 6
+                          }
+                        ],
+                        "users": {
+                          "name": "Josiah",
+                          "mobile_number": "766641295"
+                        },
+                        "items": {
+                          "grade": "XL",
+                          "image_url": "https://ik.imagekit.io/f3fishapp/BlueSwimmingCrab_KQYhehJd2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661015509786",
+                          "name": "Blue Swimming Crab"
+                        },
+                        "_count": {
+                          "bids": 1
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -1570,7 +1700,74 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "message": "The bid has been added successfully."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "error": "Internal Server Error",
+                    "message": "The bid price should be higher than the current price."
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -1604,7 +1801,219 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "bid_price": {
+                      "type": "number"
+                    },
+                    "auctions": {
+                      "type": "object"
+                    }
+                  },
+                  "example": {
+                    "id": 1,
+                    "bid_price": 10000,
+                    "auctions": {
+                      "id": 1,
+                      "scheduled_end_at": "2023-02-25T18:47:49.000Z",
+                      "item_weight": 25.5,
+                      "starting_bid_price": 8000,
+                      "status": "ACTIVE",
+                      "auction_images": [],
+                      "bids": [
+                        {
+                          "bid_price": 10000,
+                          "user_id": 6
+                        }
+                      ],
+                      "users": {
+                        "name": "Josiah",
+                        "mobile_number": "766641295"
+                      },
+                      "items": {
+                        "grade": "XL",
+                        "image_url": "https://ik.imagekit.io/f3fishapp/BlueSwimmingCrab_KQYhehJd2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661015509786",
+                        "name": "Blue Swimming Crab"
+                      },
+                      "_count": {
+                        "bids": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "error": "Internal Server Error",
+                    "message": "Cannot read properties of null (reading 'auctions')"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/bidding/v1/{lang}/submission/cancel": {
+      "post": {
+        "tags": ["Bidding service"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["bid_id"],
+                "properties": {
+                  "bid_id": {
+                    "type": "integer"
+                  }
+                },
+                "example": {
+                  "bid_id": 1
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "lang",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "en"
+            }
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "message": "The request was successfully completed."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "error": "Internal Server Error",
+                    "message": "This is an invalid role."
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -1649,7 +2058,74 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "message": "The request was successfully completed."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "error": "Internal Server Error",
+                    "message": "This is an invalid role."
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -1670,7 +2146,74 @@
         ],
         "responses": {
           "200": {
-            "description": "Default Response"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "message": "The request was successfully completed."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 500,
+                    "error": "Internal Server Error",
+                    "message": "This is an invalid role."
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "statusCode": 401,
+                    "error": "Unauthorized",
+                    "message": "Authorization token is invalid: The token signature is invalid."
+                  }
+                }
+              }
+            }
           }
         }
       }
