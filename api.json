@@ -690,11 +690,14 @@
                   "type": "array",
                   "example": [
                     {
-                      "id": 1,
-                      "scheduled_end_at": "2023-02-25T18:47:49.000Z",
+                      "id": 3,
+                      "scheduled_end_at": "2023-02-27T03:00:40.000Z",
                       "item_weight": 25.5,
                       "starting_bid_price": 8000,
                       "status": "ACTIVE",
+                      "description": "Test Description",
+                      "auction_images": [],
+                      "bids": [],
                       "items": {
                         "grade": "XL",
                         "image_url": "https://ik.imagekit.io/f3fishapp/BlueSwimmingCrab_KQYhehJd2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661015509786",
@@ -1060,6 +1063,12 @@
                     "auction_images": {
                       "type": "array"
                     },
+                    "description": {
+                      "type": "string"
+                    },
+                    "bids": {
+                      "type": "array"
+                    },
                     "items": {
                       "type": "object"
                     },
@@ -1068,12 +1077,14 @@
                     }
                   },
                   "example": {
-                    "id": 1,
-                    "scheduled_end_at": "2023-02-25T18:47:49.000Z",
+                    "id": 3,
+                    "scheduled_end_at": "2023-02-27T03:00:40.000Z",
                     "item_weight": 25.5,
                     "starting_bid_price": 8000,
                     "status": "ACTIVE",
+                    "description": "Test Description",
                     "auction_images": [],
+                    "bids": [],
                     "items": {
                       "image_url": "https://ik.imagekit.io/f3fishapp/BlueSwimmingCrab_KQYhehJd2.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1661015509786",
                       "grade": "XL",
@@ -1291,6 +1302,7 @@
                       "item_weight": 25.5,
                       "starting_bid_price": 8000,
                       "status": "ACTIVE",
+                      "description": "Test Description",
                       "auction_images": [],
                       "bids": [],
                       "users": {
@@ -1302,7 +1314,7 @@
                         "name": "Blue Swimming Crab"
                       },
                       "_count": {
-                        "bids": 0
+                        "bids": 1
                       }
                     }
                   ]
@@ -1389,6 +1401,15 @@
                     "status": {
                       "type": "string"
                     },
+                    "description": {
+                      "type": "string"
+                    },
+                    "auction_images": {
+                      "type": "array"
+                    },
+                    "bids": {
+                      "type": "array"
+                    },
                     "users": {
                       "type": "object"
                     },
@@ -1404,7 +1425,10 @@
                     "scheduled_end_at": "2023-02-25T18:47:49.000Z",
                     "item_weight": 25.5,
                     "starting_bid_price": 8000,
-                    "status": "CANCELED",
+                    "status": "ACTIVE",
+                    "description": "Test Description",
+                    "auction_images": [],
+                    "bids": [],
                     "users": {
                       "name": "Josiah"
                     },
@@ -1414,7 +1438,7 @@
                       "name": "Blue Swimming Crab"
                     },
                     "_count": {
-                      "bids": 0
+                      "bids": 1
                     }
                   }
                 }
@@ -1504,19 +1528,20 @@
                   "type": "array",
                   "example": [
                     {
-                      "id": 1,
-                      "bid_price": 10000,
+                      "id": 2,
+                      "bid_price": 28000,
                       "auctions": {
                         "id": 1,
                         "scheduled_end_at": "2023-02-25T18:47:49.000Z",
                         "item_weight": 25.5,
                         "starting_bid_price": 8000,
                         "status": "ACTIVE",
+                        "description": "Test Description",
                         "auction_images": [],
                         "bids": [
                           {
-                            "bid_price": 10000,
-                            "user_id": 6
+                            "bid_price": 28000,
+                            "user_id": 1
                           }
                         ],
                         "users": {
@@ -1529,7 +1554,7 @@
                           "name": "Blue Swimming Crab"
                         },
                         "_count": {
-                          "bids": 1
+                          "bids": 2
                         }
                       }
                     }
@@ -1595,19 +1620,20 @@
                   "type": "array",
                   "example": [
                     {
-                      "id": 1,
-                      "bid_price": 10000,
+                      "id": 2,
+                      "bid_price": 28000,
                       "auctions": {
                         "id": 1,
                         "scheduled_end_at": "2023-02-25T18:47:49.000Z",
                         "item_weight": 25.5,
                         "starting_bid_price": 8000,
                         "status": "ACTIVE",
+                        "description": "Test Description",
                         "auction_images": [],
                         "bids": [
                           {
-                            "bid_price": 10000,
-                            "user_id": 6
+                            "bid_price": 28000,
+                            "user_id": 1
                           }
                         ],
                         "users": {
@@ -1620,7 +1646,7 @@
                           "name": "Blue Swimming Crab"
                         },
                         "_count": {
-                          "bids": 1
+                          "bids": 2
                         }
                       }
                     }
@@ -1818,19 +1844,20 @@
                     }
                   },
                   "example": {
-                    "id": 1,
-                    "bid_price": 10000,
+                    "id": 2,
+                    "bid_price": 28000,
                     "auctions": {
                       "id": 1,
                       "scheduled_end_at": "2023-02-25T18:47:49.000Z",
                       "item_weight": 25.5,
                       "starting_bid_price": 8000,
                       "status": "ACTIVE",
+                      "description": "Test Description",
                       "auction_images": [],
                       "bids": [
                         {
-                          "bid_price": 10000,
-                          "user_id": 6
+                          "bid_price": 28000,
+                          "user_id": 1
                         }
                       ],
                       "users": {
@@ -1843,7 +1870,7 @@
                         "name": "Blue Swimming Crab"
                       },
                       "_count": {
-                        "bids": 1
+                        "bids": 2
                       }
                     }
                   }
